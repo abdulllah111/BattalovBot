@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сертификат</title>
+    <style>
+        @font-face {
+            font-family: 'DejaVuSans';
+            src: url('file:///D:/Projects/BattalovBot/app/static/fonts/DejaVuSans.ttf');
+        }
+        body {
+            font-family: 'DejaVuSans', sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .certificate-container {
+            width: 800px;
+            padding: 50px;
+            border: 10px solid #bda06e;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .certificate-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid #bda06e;
+        }
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .certificate-header h1 {
+            font-size: 54px;
+            color: #2c3e50;
+            font-weight: bold;
+            margin: 0;
+        }
+        .certificate-body {
+            text-align: center;
+        }
+        .certificate-body p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        .user-fio {
+            font-family: 'DejaVuSans', sans-serif; /* A more script-like font would be better, but we are limited to the provided font */
+            font-size: 42px;
+            font-weight: bold;
+            color: #bda06e;
+            margin: 30px 0;
+        }
+        .certificate-footer {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .date-block, .seal-block {
+            width: 45%;
+            text-align: center;
+        }
+        .date-block p, .seal-block p {
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+            font-size: 14px;
+        }
+        .seal {
+            width: 120px;
+            height: 120px;
+            background-color: #bda06e;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .seal::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+        .seal-text {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="certificate-border"></div>
+        <div class="certificate-header">
+            <h1>СЕРТИФИКАТ</h1>
+        </div>
+        <div class="certificate-body">
+            <p>Настоящий сертификат удостоверяет, что</p>
+            <div class="user-fio">
+                {{ user_fio }}
+            </div>
+            <p>успешно прошел(ла) регистрацию в системе BattalovBot</p>
+        </div>
+        <div class="certificate-footer">
+            <div class="date-block">
+                <p>Дата выдачи: {{ date }}</p>
+            </div>
+            <div class="seal-block">
+                <div class="seal">
+                    <div class="seal-text">BattalovBot</div>
+                </div>
+                <p>Печать</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
